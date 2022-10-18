@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
     user = userCredential.user;
     if(user!=null){
       print(user);
-      Navigator.push(context, MaterialPageRoute(builder: (_) => homePage()));
+      Navigator.push(context, MaterialPageRoute(builder: (_) => SpotifyHome()));
     }
   }
 
