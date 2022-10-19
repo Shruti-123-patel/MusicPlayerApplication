@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/logic/models/songs.dart';
 import 'package:spotify/logic/operations/songsOperation.dart';
+import 'package:spotify/logic/operations/userOperation.dart';
 
 import 'SongPlayPage.dart';
 
@@ -8,9 +9,11 @@ class SongList extends StatefulWidget {
   // const SongList({Key? key}) : super(key: key);
   String category = '';
   int index=0;
-  SongList(int index,String name) {
+  String email='';
+  SongList(int index,String name,String email) {
     this.category = name;
     this.index = index;
+    this.email=email;
   }
   @override
   State<SongList> createState() => _SongListState();
@@ -61,6 +64,13 @@ class _SongListState extends State<SongList> {
                               decoration: TextDecoration.none,
                               fontFamily: 'calibri'))
                     ],
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      userOperations.addToLikedSongs(i,widget.email);
+                    },
+                    icon: Icon(Icons.heart_broken),
+
                   )
                 ],
               ),

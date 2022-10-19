@@ -33,6 +33,7 @@ class _LoginPageState extends State<LoginPage> {
             Navigator.push(context, MaterialPageRoute(builder: (_) => CreateSong()));
         }
         else{
+          SpotifyHome.setEmail(_emailControl.text);
           Navigator.push(context, MaterialPageRoute(builder: (_) => SpotifyHome()));
         }
 

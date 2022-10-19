@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:spotify/loginPage.dart';
 import 'package:spotify/playlistPage.dart';
 import 'package:spotify/searchPage.dart';
 
 import 'Home.dart';
 
 class SpotifyHome extends StatefulWidget {
-  const SpotifyHome({Key? key}) : super(key: key);
-
+  // const SpotifyHome({Key? key}) : super(key: key);
+  static String email='';
+  static setEmail(String email_){
+    SpotifyHome.email= email_ ;
+  }
   @override
   State<SpotifyHome> createState() => _SpotifyHomeState();
 }
@@ -18,7 +22,7 @@ class _SpotifyHomeState extends State<SpotifyHome> {
   @override
   initState() {
     super.initState();
-    pages=[Home(),searchPage(),playlistPage()];
+    pages=[Home(SpotifyHome.email),searchPage(),playlistPage(SpotifyHome.email),LoginPage()];
     curr_page=0  ;
   }
 
@@ -34,9 +38,9 @@ class _SpotifyHomeState extends State<SpotifyHome> {
           curr_page=currentIndex;
           setState(() {});
         },
-        backgroundColor: Colors.black54,
+        backgroundColor: Colors.transparent,
         unselectedItemColor: Colors.black,
-        selectedItemColor: Colors.black54,
+        selectedItemColor: Colors.black,
         items: [
           BottomNavigationBarItem(icon:Icon(Icons.home_rounded,color: Colors.black),label:"Home"),
           BottomNavigationBarItem(icon:Icon(Icons.search,color: Colors.black),label: "Search"),

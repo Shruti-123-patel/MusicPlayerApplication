@@ -5,6 +5,10 @@ import 'package:spotify/logic/operations/categoryOperations.dart';
 import 'package:spotify/logic/models/artists.dart';
 import 'package:spotify/logic/operations/artistOperation.dart';
 class Home extends StatefulWidget {
+  String email='';
+  Home(String email){
+    this.email=email;
+  }
   @override
   State<Home> createState() => _HomeState();
 }
@@ -19,7 +23,7 @@ class _HomeState extends State<Home> {
       color: Colors.blueGrey,
         child: InkWell(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (_) => SongList(1,cat.name)));
+            Navigator.push(context, MaterialPageRoute(builder: (_) => SongList(1,cat.name,widget.email)));
           },
          child:Row(
             children: [
@@ -69,7 +73,7 @@ class _HomeState extends State<Home> {
         padding: EdgeInsets.all(10),
         child: InkWell(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (_) => SongList(2,artist.name)));
+            Navigator.push(context, MaterialPageRoute(builder: (_) => SongList(2,artist.name,widget.email)));
           },
             child:  Column(
               crossAxisAlignment: CrossAxisAlignment.start,

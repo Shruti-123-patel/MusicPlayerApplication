@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'loginPage.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'audioPlayer.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -14,8 +12,6 @@ void main() async{
 
   Paint.enableDithering = true;
 
-  //initialize hive database
-  await Hive.initFlutter();
 
   //initialize firebase
   await Firebase.initializeApp();
