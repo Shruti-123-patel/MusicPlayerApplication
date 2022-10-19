@@ -5,7 +5,7 @@ import 'package:spotify/logic/models/songs.dart';
 import 'homePage.dart';
 class songPlayPage extends StatefulWidget {
   // const songPlayPage({Key? key}) : super(key: key);
-  Song song = new Song('', '', '','');
+  Song song = new Song('', '', '','','');
   String category='';
   songPlayPage(Song i,String cat){
     song = i;

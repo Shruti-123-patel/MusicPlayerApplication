@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:spotify/AdminPages/CreateSong.dart';
 import 'package:spotify/registerPage.dart';
 import 'homePage.dart';
 
@@ -20,16 +21,24 @@ class _LoginPageState extends State<LoginPage> {
 
   _login() async{
     User? user;
-    UserCredential userCredential=await _auth.signInWithEmailAndPassword(
-        email: _emailControl.text,
-        password: _passwordControl.text
-    );
-    user = userCredential.user;
-    if(user!=null){
-      print(user);
-      Navigator.push(context, MaterialPageRoute(builder: (_) => SpotifyHome()));
+
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+          email: _emailControl.text,
+          password: _passwordControl.text
+      );
+      user = userCredential.user;
+      if (user != null) {
+        print(user);
+        if(_emailControl.text == 'admin123@gmail.com'){
+            Navigator.push(context, MaterialPageRoute(builder: (_) => CreateSong()));
+        }
+        else{
+          Navigator.push(context, MaterialPageRoute(builder: (_) => SpotifyHome()));
+        }
+
+      }
     }
-  }
+
 
   @override
   Widget build(BuildContext context) {
