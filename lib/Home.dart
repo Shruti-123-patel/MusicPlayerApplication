@@ -66,29 +66,34 @@ class _HomeState extends State<Home> {
   }
 
   Widget createCard(Artists artist){
-    return Padding(
+    return Container(
         padding: EdgeInsets.all(10),
-        child:  Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children:[
+        child: InkWell(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (_) => SongList(2,artist.name)));
+          },
+            child:  Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:[
 
-              Image.asset(
-                artist.image,
-                height:120,
-                width: 120,
-                fit: BoxFit.cover,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                  artist.name,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold
-                  )
-              )
-            ]
+                Image.asset(
+                  artist.image,
+                  height:120,
+                  width: 120,
+                  fit: BoxFit.cover,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                    artist.name,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
+                    )
+                )
+              ]
+          )
         )
     );
   }

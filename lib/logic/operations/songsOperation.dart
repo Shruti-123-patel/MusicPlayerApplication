@@ -9,11 +9,19 @@ class songsOperations{
     // print(list.docs);
     // ;
     // return list.docs.map((e) => Song.fromJson(e.data())).toList();
-    print(name);
-    final list= await FirebaseFirestore.instance.collection('Songs').where('category',isEqualTo: name).get();
-    print(list.docs);
-    // list.where('category',isEqualTo: name);
+    // print(name);
+
+    if(index == 1) {
+      final list = await FirebaseFirestore.instance.collection('Songs').where(
+          'category', isEqualTo: name).get();
+      return list.docs.map((e) => Song.fromJson(e.data())).toList();
+    }
+    final list= await FirebaseFirestore.instance.collection('Songs').where('artist',isEqualTo: name).get();
     return list.docs.map((e) => Song.fromJson(e.data())).toList();
+
+    // print(list.docs);
+    // list.where('category',isEqualTo: name);
+
     // .snapshots()
     // .map(
     //     (snapshot)=> snapshot.docs.map((e) => Song.fromJson(e.data())).toList()
