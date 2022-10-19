@@ -32,4 +32,11 @@ class songsOperations{
     //   Song("Deva Deva", "asset/images/songs/2.jpeg", "Arijit Singh","https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/0c/c1/a4/0cc1a4b8-3094-7a3a-62dd-6f8f4f25d09e/mzaf_18084605159614822898.plus.aac.p.m4a","Happy Vibes")
     // ];
   }
+
+  static Future<List<Song>> getSongs() async {
+    // print("Hello");
+    final list = await FirebaseFirestore.instance.collection('Songs').get();
+    print(list.docs.map((e) => Song.fromJson(e.data())).toList());
+    return list.docs.map((e) => Song.fromJson(e.data())).toList();
+  }
 }

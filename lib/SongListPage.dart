@@ -77,6 +77,7 @@ class _SongListState extends State<SongList> {
   List<Widget> musicList(List<Song> list_) {
     // List<Song> list = getList(list_);
     List<Song> list = list_;
+
     List<Widget> songList = list.map((Song i) => createSongItem(i)).toList();
     return songList;
   }
@@ -122,24 +123,25 @@ class _SongListState extends State<SongList> {
     return SafeArea(
         child: SingleChildScrollView(
             child: Container(
-      height: 1000,
-      child: Column(
-        children: [
-          AppBar(
-            title: Text(widget.category),
-            backgroundColor: Colors.transparent,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          makegrid(),
-        ],
-      ),
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-              colors: [Colors.blueGrey, Colors.black],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight)),
-    )));
+              height: 1000,
+              child: Column(
+                children: [
+                  AppBar(
+                    title: Text(widget.category),
+                    backgroundColor: Colors.transparent,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  makegrid(),
+                ],
+              ),
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [Colors.blueGrey, Colors.black],
+
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight)),
+            )));
   }
 }
