@@ -15,4 +15,9 @@ class Song{
       'category' : this.category
     };
   }
+
+  static Song fromJson(Map<String,dynamic>json){
+    return Song(json['name'],json['image'],json['artist'],json['url'],json['category']
+    );
+  }
 }

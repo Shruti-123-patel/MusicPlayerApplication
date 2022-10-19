@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
       color: Colors.blueGrey,
         child: InkWell(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (_) => SongList(cat.name)));
+            Navigator.push(context, MaterialPageRoute(builder: (_) => SongList(1,cat.name)));
           },
          child:Row(
             children: [

@@ -18,7 +18,7 @@ class _CreateSongState extends State<CreateSong> {
   TextEditingController category = new TextEditingController();
 
   _create() async{
-    Song song = new Song(name.text,artist.text,image.text,url.text,category.text);
+    Song song = new Song(name.text,image.text,artist.text,url.text,category.text);
     final json = song.toJson();
     final docUser = FirebaseFirestore.instance.collection('Songs').doc();
     await docUser.set(json);
@@ -74,18 +74,7 @@ class _CreateSongState extends State<CreateSong> {
               SizedBox(
                 height: 10,
               ),
-              TextField(
-                controller: name,
-                decoration: InputDecoration(
-                  // prefixText: "Email : ",
-                    border: OutlineInputBorder(),
-                    labelText: 'Name',
-                    hintText: 'name'
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
+
               TextField(
                 controller: url,
                 decoration: InputDecoration(
@@ -110,22 +99,12 @@ class _CreateSongState extends State<CreateSong> {
               SizedBox(
                 height: 10,
               ),
-              TextButton(
+              ElevatedButton(
                   onPressed: ()=>_create(),
                   child: Text('Add Song'),
               )
             ],
           ),
-          // decoration: BoxDecoration(
-          //     gradient:LinearGradient(
-          //         colors: [
-          //           Colors.blueGrey,
-          //           Colors.black
-          //         ],
-          //         begin: Alignment.topLeft,
-          //         end: Alignment.bottomRight
-          //     )
-          // ),
         )
     ));
   }
